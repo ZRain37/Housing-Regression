@@ -45,3 +45,26 @@ bor.results <- Boruta(sample.df, response,
 print(bor.results)
 getSelectedAttributes(bor.results)
 plot(bor.results)
+
+confirmedAtt <- getSelectedAttributes(bor.results)
+print(confirmedAtt)
+
+linMod <- lm(SalePrice ~ MSSubClass+MSZoning+LotArea+Alley+LandContour+
+               Neighborhood+BldgType+HouseStyle+OverallQual+OverallCond+
+               YearBuilt+YearRemodAdd+Exterior1st+Exterior2nd+MasVnrArea+
+               ExterQual+Foundation+BsmtQual+BsmtCond+BsmtExposure+BsmtFinType1+
+               BsmtFinType2+BsmtUnfSF+TotalBsmtSF+HeatingQC+CentralAir+KitchenQual+
+               GrLivArea+BsmtFullBath+FullBath+HalfBath+BedroomAbvGr+KitchenAbvGr+
+               TotRmsAbvGrd+Functional, data = HouseIndex)
+summary(linMod)
+
+linMod <- lm(SalePrice ~ MSSubClass+MSZoning+LotArea+Alley+LandContour+
+               Neighborhood+BldgType+HouseStyle+OverallQual+OverallCond+YearBuilt+
+               YearRemodAdd+Exterior1st+Exterior2nd+MasVnrArea+ExterQual+Foundation+
+               BsmtQual+BsmtCond+BsmtExposure+BsmtFinType1+BsmtFinSF1+BsmtFinType2+
+               BsmtUnfSF+TotalBsmtSF+HeatingQC+CentralAir+1stFlrSF+2ndFlrSF+
+               GrLivArea+BsmtFullBath+FullBath+HalfBath+BedroomAbvGr+KitchenAbvGr+
+               KitchenQual+TotRmsAbvGrd+Functional+Fireplaces+FireplaceQu+GarageType+
+               GarageYrBlt+GarageFinish+GarageCars+GarageArea+GarageQual+GarageCond+
+               PavedDrive+WoodDeckSF+OpenPorchSF+Fence, data = HouseIndex)
+summary(linMod)
